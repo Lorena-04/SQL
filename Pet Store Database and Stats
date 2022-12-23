@@ -1,0 +1,32 @@
+--Create store database 
+
+CREATE TABLE pet_store (id integer primary key, item text, description text, quantity integer, price integer);
+
+INSERT into pet_store VALUES (1, "collar", "blue", 10, 4);
+INSERT into pet_store VALUES (2, "collar", "black", 8, 4);
+INSERT into pet_store VALUES (3, "collar", "red", 9, 4);
+INSERT into pet_store VALUES (4, "leash", "black", 11, 6);
+INSERT into pet_store VALUES (5, "leash", "brown", 12, 6);
+INSERT into pet_store VALUES (6, "food bowl", "white", 7, 3);
+INSERT into pet_store VALUES (7, "food bowl", "silver", 10, 3);
+INSERT into pet_store VALUES (8, "treats", "chicken flavor", 7, 6);
+INSERT into pet_store VALUES (9, "treats", "beef flavor", 8, 7);
+INSERT into pet_store VALUES (10, "treats", "salmon flavor", 5, 9);
+INSERT into pet_store VALUES (11, "wipes", "no scent", 11, 8);
+INSERT into pet_store VALUES (12, "toy", "ball", 22, 5);
+INSERT into pet_store VALUES (13, "bed", "gray", 10, 11);
+INSERT into pet_store VALUES (14, "bed", "brown", 8, 11);
+INSERT into pet_store VALUES (15, "poop bags","black", 15, 8);
+
+--display the database ordered by price. 
+SELECT * FROM pet_store ORDER BY price;
+
+--which items can be bought for under $7?
+SELECT * FROM pet_store WHERE price <7 ORDER BY price
+
+--how many different item descriptions are available?
+SELECT COUNT (DISTINCT Description) FROM pet_store;
+
+--what is the avg price of items from the pet store?
+SELECT AVG (price)
+FROM pet_store;

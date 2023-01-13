@@ -1,0 +1,38 @@
+#In this SQL code, I'm querying a database that's holding top countries by population data to answer questions about the data. 
+
+#1. How many countries total are used in the data.
+SELECT COUNT (*) FROM countries;
+
+#2. What is the highet population density in the data?
+SELECT MAX (density_per_sq_km) AS HighDensity FROM countries; 
+
+#3. What is the lowest population density in the data?
+SELECT MIN (density_per_sq_km) AS LowDensity FROM countries; 
+
+#4. What is the average population density in the data?
+SELECT AVG (density_per_sq_km) FROM countries; 
+
+#5. Which countries have a density population less than the average number?
+SELECT name, density_per_sq_km FROM countries GROUP BY name HAVING density_per_sq_km <358; 
+
+#6. Which countries have a density population less than average AND have a median age that falls within the age range of when women have their first baby?
+SELECT name,density_per_sq_km, median_age FROM countries WHERE density_per_sq_km <358 GROUP BY name HAVING median_age BETWEEN 25 AND 35;
+
+#7. Display data in order to see which countries have a fertility rate that is below average, average and above average.
+SELECT name, fertility_rate,
+    CASE
+        WHEN fertility_rate <2.1 THEN "below average"
+        WHEN fertility_rate >=2.1 THEN "average"
+        WHEN fertility_rate >5 THEN "above average"
+    END as "fertility_zone"
+FROM countries;
+
+#8. How many countries have a fertility rate that falls within the below average?
+SELECT COUNT (*),
+    CASE
+        WHEN fertility_rate <2.1 THEN "below average"
+        WHEN fertility_rate >=2.1 THEN "average"
+        WHEN fertility_rate >5 THEN "above average"
+    END as "fertility_zone"
+FROM countries
+GROUP BY fertility_zone;

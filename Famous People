@@ -1,0 +1,38 @@
+/* Create table about the people and what they do here */
+
+CREATE TABLE actors (id INTEGER PRIMARY KEY AUTOINCREMENT, actor_name TEXT);
+
+INSERT INTO actors (actor_name) VALUES ("Will Smith");
+INSERT into actors (actor_name) VALUES ("Jennifer Aniston");
+INSERT INTO actors (actor_name) VALUES ("Vince Vaughn");
+INSERT INTO actors (actor_name) VALUES ("Adam Sandler");
+INSERT INTO actors (actor_name) VALUES ("Kate Beckinsale");
+INSERT INTO actors (actor_name) VALUES ("Martin Lawrence");
+INSERT INTO actors (actor_name) VALUES ("Paul Rudd");
+INSERT INTO actors (actor_name) VALUES ("Rosario Dawson");
+INSERT INTO actors (actor_name) VALUES ("Ryan Reynold");
+
+CREATE TABLE movies (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, genre TEXT, actor_id INTEGER, release_date INTEGER);
+
+INSERT INTO movies (title, genre, actor_id, release_date) VALUES ("The pursuit of happyness", "drama", 1, 2006);
+INSERT INTO movies (title, genre, actor_id, release_date) VALUES ("Clueless", "Rom-Com", 7, 1995);
+INSERT INTO movies (title, genre, actor_id, release_date) VALUES ("The Break Up", "Rom-Com", 2, 2006);
+INSERT INTO movies (title, genre, actor_id, release_date) VALUES ("Click", "comedy", 4, 2006);
+INSERT INTO movies (title, genre, actor_id, release_date) VALUES ("Bad Boys", "action", 1, 1995);
+INSERT INTO movies (title, genre, actor_id, release_date) VALUES ("Seven Pounds","drama",8, 2008);
+INSERT INTO movies (title, genre, actor_id, release_date) VALUES ("Marley and Me", "drama", 2, 2008);
+INSERT INTO movies (title, genre, actor_id, release_date) VALUES ("Role Models", "comedy", 7,2008);
+INSERT INTO movies (title, genre, actor_id, release_date) VALUES ("Definitley Maybe", "Rom-Com", 9, 2008);
+INSERT INTO movies (title, genre, actor_id, release_date) VALUES ("Hitch", "Rom-Com", 1, 2005);
+INSERT INTO movies (title, genre, actor_id, release_date) VALUES ("RENT", "drama", 8, 2005);
+INSERT INTO movies (title, genre, actor_id, release_date) VALUES ("Just Friends", "Rom-Com", 9, 2005);
+INSERT INTO movies (title, genre, actor_id, release_date) VALUES ("The Break Up", "Rom-Com", 3, 2006);
+INSERT INTO movies (title, genre, actor_id, release_date) VALUES ("Click", "comedy", 5, 2006);
+INSERT INTO movies (title, genre, actor_id, release_date) VALUES ("Bad Boys", "action", 6, 1995);
+
+
+SELECT a.actor_name, m.title,m.genre, m.release_date
+FROM actors AS a
+LEFT OUTER JOIN movies AS m
+ON a.id = m.actor_id
+ORDER BY release_date ASC;

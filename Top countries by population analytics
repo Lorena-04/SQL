@@ -1,4 +1,4 @@
-#In this SQL code, I'm querying a database that's holding top countries by population data to answer questions about the data. 
+#In this SQL code, I'm querying a database that's holding top countries by population data to answer questions that would help a pharmaceutical determine where they should launch their new fertility drug.
 
 #1. How many countries total are used in the data.
 SELECT COUNT (*) FROM countries;
